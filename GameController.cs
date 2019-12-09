@@ -46,16 +46,17 @@ private bool timerActive = false;
 
     void Update()
     {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
         if (restart)
         {
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 SceneManager.LoadScene("SampleScene");
             }
-            if (Input.GetKey("escape"))
-            {
-                Application.Quit();
-            }
+         
         }
         if (Input.GetKeyDown(KeyCode.Q))
             timerActive = true;
@@ -101,6 +102,8 @@ private bool timerActive = false;
             {
                 restartText.text = "Press 'Z' for Restart";
                 restart = true;
+                musicSource1.clip = musicLose;
+                musicSource1.Play();
                 timerActive = false;
                 break;
             }
@@ -134,11 +137,11 @@ private bool timerActive = false;
     { 
             {
                 gameOverText.text = "Game Over! Created by Z Powell";
-                gameOver = true;
-            timerActive = false;
+            gameOver = true;
                 musicSource1.clip = musicLose;
                 musicSource1.Play();
-            }
+            timerActive = false;
+        }
         
        
     }
