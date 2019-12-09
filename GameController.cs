@@ -72,6 +72,8 @@ private bool timerActive = false;
             if (currentTime <= 0)
             {
                 gameOver = true;
+                musicSource1.clip = musicLose;
+                musicSource1.Play();
                 restart = true;
                 gameOverText.text = "Game Over! Created by Z Powell";
             }
